@@ -1,4 +1,4 @@
-package site.nebula.myapplication;
+package site.nebulas.demo.activity;
 
 import android.app.Activity;
 import android.app.Notification;
@@ -8,6 +8,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import site.nebulas.demo.R;
 
 /**
  * Created by Nebula on 2017/9/23.

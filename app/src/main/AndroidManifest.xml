@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="site.nebula.myapplication">
+    package="site.nebulas.demo">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
@@ -14,17 +14,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CallUpActivity" />
-        <activity android:name=".AlarmActivity" />
-        <activity android:name=".NotificationActivity" />
-        <activity android:name=".GridViewActivity" />
+        <activity android:name=".activity.CallUpActivity" />
+        <activity android:name=".activity.AlarmActivity" />
+        <activity android:name=".activity.NotificationActivity" />
+        <activity android:name=".activity.GridViewActivity" />
+        <activity android:name=".activity.ShredPreferencesActivity" />
+
     </application>
 
 </manifest>

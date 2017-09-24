@@ -8,8 +8,9 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="horizontal"
         android:columnCount="3"
-        android:layout_weight="1">
+        android:layout_gravity="center">
         <Button
             android:id="@+id/call_up"
             android:layout_width="wrap_content"
@@ -50,6 +51,17 @@
             android:textColor="@color/colorSecondaryText"
             android:textAllCaps="false"
             android:text="GridView"/>
+
+        <Button
+            android:id="@+id/shared_preferences"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_border"
+            android:textColor="@color/colorSecondaryText"
+            android:textAllCaps="false"
+            android:text="ShredPreferences"/>
 
     </GridLayout>
 

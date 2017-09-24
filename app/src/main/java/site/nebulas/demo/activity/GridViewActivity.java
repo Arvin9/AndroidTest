@@ -1,4 +1,4 @@
-package site.nebula.myapplication;
+package site.nebulas.demo.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import site.nebulas.demo.R;
 
 /**
  * Created by Nebula on 2017/9/24.
@@ -62,6 +64,6 @@ public class GridViewActivity extends Activity implements AdapterView.OnItemClic
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(this, iconName[position], Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, iconName[position].trim(), Toast.LENGTH_SHORT).show();
     }
 }

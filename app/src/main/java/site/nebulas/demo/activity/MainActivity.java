@@ -1,10 +1,12 @@
-package site.nebula.myapplication;
+package site.nebulas.demo.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+
+import site.nebulas.demo.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.create_alarm).setOnClickListener(this);
         findViewById(R.id.notification).setOnClickListener(this);
         findViewById(R.id.grid_view).setOnClickListener(this);
+        findViewById(R.id.shared_preferences).setOnClickListener(this);
     }
 
     @Override
@@ -46,6 +49,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.grid_view: {
                 Toast.makeText(this, "GridView", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, GridViewActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.shared_preferences: {
+                Toast.makeText(this, "ShredPreferences", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, ShredPreferencesActivity.class);
                 startActivity(intent);
                 break;
             }

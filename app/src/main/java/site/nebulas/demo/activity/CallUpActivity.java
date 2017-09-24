@@ -1,6 +1,5 @@
-package site.nebula.myapplication;
+package site.nebulas.demo.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+import site.nebulas.demo.R;
 
 /**
  * Created by Nebula on 2017/9/23.

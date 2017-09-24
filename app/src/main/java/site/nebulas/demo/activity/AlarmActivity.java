@@ -1,4 +1,4 @@
-package site.nebula.myapplication;
+package site.nebulas.demo.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,8 @@ import android.provider.AlarmClock;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import site.nebulas.demo.R;
+
 
 /**
  * Created by Nebula on 2017/9/23.
