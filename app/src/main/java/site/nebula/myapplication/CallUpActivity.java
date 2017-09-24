@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,7 +12,7 @@ import android.widget.Toast;
 /**
  * Created by Nebula on 2017/9/23.
  */
-public class CallUpActivity extends Activity {
+public class CallUpActivity extends AppCompatActivity {
     private TextView phoneNumberTv;
 
     @Override
