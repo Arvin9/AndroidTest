@@ -24,6 +24,7 @@
         <activity android:name=".CallUpActivity" />
         <activity android:name=".AlarmActivity" />
         <activity android:name=".NotificationActivity" />
+        <activity android:name=".GridViewActivity" />
     </application>
 
 </manifest>

@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.call_up).setOnClickListener(this);
         findViewById(R.id.create_alarm).setOnClickListener(this);
         findViewById(R.id.notification).setOnClickListener(this);
+        findViewById(R.id.grid_view).setOnClickListener(this);
     }
 
     @Override
@@ -39,6 +40,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.notification: {
                 Toast.makeText(this, "通知", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, NotificationActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.grid_view: {
+                Toast.makeText(this, "GridView", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, GridViewActivity.class);
                 startActivity(intent);
                 break;
             }

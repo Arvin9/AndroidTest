@@ -5,31 +5,52 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/call_up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:background="@drawable/button_border"
-        android:textColor="@color/colorSecondaryText"
-        android:text="打电话"/>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="3"
+        android:layout_weight="1">
+        <Button
+            android:id="@+id/call_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_border"
+            android:textColor="@color/colorSecondaryText"
+            android:text="打电话"/>
 
-    <Button
-        android:id="@+id/create_alarm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:background="@drawable/button_border"
-        android:textColor="@color/colorSecondaryText"
-        android:text="设闹钟"/>
+        <Button
+            android:id="@+id/create_alarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_border"
+            android:textColor="@color/colorSecondaryText"
+            android:text="设闹钟"/>
 
-    <Button
-        android:id="@+id/notification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:background="@drawable/button_border"
-        android:textColor="@color/colorSecondaryText"
-        android:text="通知栏"/>
+        <Button
+            android:id="@+id/notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_border"
+            android:textColor="@color/colorSecondaryText"
+            android:text="通知栏"/>
+
+        <Button
+            android:id="@+id/grid_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_border"
+            android:textColor="@color/colorSecondaryText"
+            android:textAllCaps="false"
+            android:text="GridView"/>
+
+    </GridLayout>
 
 </LinearLayout>
