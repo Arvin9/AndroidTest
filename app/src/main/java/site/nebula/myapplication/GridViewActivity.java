@@ -2,8 +2,12 @@ package site.nebula.myapplication;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +17,7 @@ import java.util.Map;
  * Created by Nebula on 2017/9/24.
  */
 
-public class GridViewActivity extends Activity {
+public class GridViewActivity extends Activity implements AdapterView.OnItemClickListener{
     private GridView gridView;
     private List<Map<String, Object>> dataList;
     private int[] icon = {
@@ -43,6 +47,7 @@ public class GridViewActivity extends Activity {
         // 3、Gridview加载适配器
         gridView.setAdapter(adapter);
         // 4、GridView配置监听事件
+        gridView.setOnItemClickListener(this);
     }
 
     private List<Map<String, Object>> getData() {
@@ -55,4 +60,8 @@ public class GridViewActivity extends Activity {
         return dataList;
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Toast.makeText(this, iconName[position], Toast.LENGTH_SHORT).show();
+    }
 }
