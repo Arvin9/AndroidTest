@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-
 import site.nebulas.demo.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -23,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.notification).setOnClickListener(this);
         findViewById(R.id.grid_view).setOnClickListener(this);
         findViewById(R.id.shared_preferences).setOnClickListener(this);
+        findViewById(R.id.broad).setOnClickListener(this);
     }
 
     @Override
@@ -55,6 +55,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.shared_preferences: {
                 Toast.makeText(this, "ShredPreferences", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, ShredPreferencesActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.broad: {
+                Toast.makeText(this, "广播", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, BroadActivity.class);
                 startActivity(intent);
                 break;
             }
