@@ -6,6 +6,13 @@
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MODE_PRIVATE" />
+
 
     <application
         android:allowBackup="true"
@@ -26,6 +33,9 @@
         <activity android:name=".activity.GridViewActivity" />
         <activity android:name=".activity.ShredPreferencesActivity" />
         <activity android:name=".activity.BroadActivity" />
+        <activity android:name=".activity.ShakeActivity" />
+        <activity android:name=".activity.ProgressbarActivity" />
+
 
         <receiver android:name="site.nebulas.demo.activity.BC1">
             <intent-filter>

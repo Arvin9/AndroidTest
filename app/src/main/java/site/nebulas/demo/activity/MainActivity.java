@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.grid_view).setOnClickListener(this);
         findViewById(R.id.shared_preferences).setOnClickListener(this);
         findViewById(R.id.broad).setOnClickListener(this);
+        findViewById(R.id.shake).setOnClickListener(this);
+        findViewById(R.id.progressbar).setOnClickListener(this);
     }
 
     @Override
@@ -61,6 +63,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.broad: {
                 Toast.makeText(this, "广播", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, BroadActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.shake: {
+                Toast.makeText(this, "摇一摇", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, ShakeActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.progressbar: {
+                Toast.makeText(this, "进度条", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, ProgressbarActivity.class);
                 startActivity(intent);
                 break;
             }

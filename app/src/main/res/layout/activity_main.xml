@@ -73,6 +73,26 @@
             android:textColor="@color/colorSecondaryText"
             android:text="广播"/>
 
+        <Button
+            android:id="@+id/shake"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_border"
+            android:textColor="@color/colorSecondaryText"
+            android:text="摇一摇"/>
+
+        <Button
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_border"
+            android:textColor="@color/colorSecondaryText"
+            android:text="进度条"/>
+
     </GridLayout>
 
 </LinearLayout>
