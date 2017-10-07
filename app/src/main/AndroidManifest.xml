@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="site.nebulas.demo">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
@@ -15,6 +17,7 @@
 
 
     <application
+        android:name=".aplication.MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -35,7 +38,7 @@
         <activity android:name=".activity.BroadActivity" />
         <activity android:name=".activity.ShakeActivity" />
         <activity android:name=".activity.ProgressbarActivity" />
-
+        <activity android:name=".activity.SQLiteActivity" />
 
         <receiver android:name="site.nebulas.demo.activity.BC1">
             <intent-filter>

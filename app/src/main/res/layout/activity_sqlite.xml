@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <EditText
+            android:id="@+id/username_add"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="3"
+            android:layout_marginRight="5dp"
+            android:background="@color/colorPrimaryTransparence"
+            android:textSize="18sp"
+            android:hint="用户名" />
+
+        <EditText
+            android:id="@+id/password_add"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="3"
+            android:background="@color/colorPrimaryTransparence"
+            android:textSize="18sp"
+            android:hint="密码" />
+        <Button
+            android:id="@+id/butn_add"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/colorPrimaryText"
+            android:background="@drawable/button_border"
+            android:textSize="18sp"
+            android:text="添加"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <EditText
+            android:id="@+id/username_update"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="3"
+            android:layout_marginRight="5dp"
+            android:background="@color/colorPrimaryTransparence"
+            android:textSize="18sp"
+            android:hint="用户名" />
+
+        <EditText
+            android:id="@+id/password_update"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="3"
+            android:background="@color/colorPrimaryTransparence"
+            android:textSize="18sp"
+            android:hint="密码" />
+        <Button
+            android:id="@+id/butn_update"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/colorPrimaryText"
+            android:background="@drawable/button_border"
+            android:textSize="18sp"
+            android:text="修改"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <EditText
+            android:id="@+id/username_delete"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="3"
+            android:layout_marginRight="5dp"
+            android:background="@color/colorPrimaryTransparence"
+            android:textSize="18sp"
+            android:hint="用户名" />
+
+        <EditText
+            android:id="@+id/password_delete"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="3"
+            android:background="@color/colorPrimaryTransparence"
+            android:textSize="18sp"
+            android:visibility="invisible"
+            android:hint="密码" />
+        <Button
+            android:id="@+id/butn_delete"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/colorPrimaryText"
+            android:background="@drawable/button_border"
+            android:textSize="18sp"
+            android:text="删除"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <Button
+            android:id="@+id/butn_query"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:textColor="@color/colorPrimaryText"
+            android:background="@drawable/button_border"
+            android:textSize="18sp"
+            android:text="查询"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_margin="10dp">
+
+        <ListView
+            android:id="@+id/show_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ListView>
+
+    </LinearLayout>
+
+</LinearLayout>

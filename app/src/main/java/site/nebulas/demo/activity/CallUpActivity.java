@@ -36,7 +36,7 @@ public class CallUpActivity extends AppCompatActivity {
                 return;
             }
             Intent intent = new Intent();
-            intent.setAction(Intent.ACTION_CALL);
+            intent.setAction(Intent.ACTION_DIAL);
             intent.setData(Uri.parse("tel:" + phoneNumber));
             startActivity(intent);
         }
