@@ -8,11 +8,22 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import com.tendcloud.tenddata.TCAgent;
+import com.tendcloud.tenddata.TDAccount;
+
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 import site.nebula.marmot.utils.CheckNetworkUtil;
 import site.nebula.marmot.utils.LogUtil;
 import site.nebulas.demo.R;
+import site.nebulas.demo.utils.HttpUtils;
 import site.nebulas.demo.utils.ToastUtil;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -24,6 +35,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TCAgent. onLogin("1234567", TDAccount.AccountType.WEIXIN, "Sun");
+
         initView();
 
         networkMonitor();
@@ -56,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.progressbar).setOnClickListener(this);
         findViewById(R.id.check_network_state).setOnClickListener(this);
         findViewById(R.id.sqlite).setOnClickListener(this);
+        findViewById(R.id.okhttp).setOnClickListener(this);
     }
 
     @Override
@@ -68,7 +83,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 LogUtil.openLog();
                 LogUtil.record("Main", "网络状态："+ networkState);
                 LogUtil.record("Main", "网络类型："+ networkType);
-                ToastUtil.toast("网络状态："+ networkState);
                 ToastUtil.toast("网络状态："+ networkState);
                 ToastUtil.toast("网络类型："+ networkType);
                 break;
@@ -124,6 +138,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.sqlite: {
                 Toast.makeText(this, "SQLite", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, SQLiteActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.okhttp: {
+                ToastUtil.toast("okHttp");
+                Intent intent = new Intent(this, OkHttpActivity.class);
                 startActivity(intent);
                 break;
             }
