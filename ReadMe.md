@@ -1,4 +1,4 @@
 # Android Test
 
 ## TODO
--[ ] zxing
+- [ ] zxing
