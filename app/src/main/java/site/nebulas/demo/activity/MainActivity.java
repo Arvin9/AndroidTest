@@ -6,23 +6,31 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.alibaba.sdk.android.man.MANService;
 import com.alibaba.sdk.android.man.MANServiceProvider;
 import com.baidu.mobstat.StatService;
 import com.tendcloud.tenddata.TCAgent;
 import com.tendcloud.tenddata.TDAccount;
 import com.zhuge.analysis.stat.ZhugeSDK;
+import java.io.IOException;
+import okhttp3.Call;
+import okhttp3.Response;
 import site.nebula.marmot.utils.CheckNetworkUtil;
 import site.nebula.marmot.utils.LogUtil;
 import site.nebulas.demo.R;
+import site.nebulas.demo.base.BaseActivity;
+import site.nebulas.demo.base.BaseCallback;
+import site.nebulas.demo.utils.HttpUtils;
 import site.nebulas.demo.utils.ToastUtil;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends BaseActivity implements View.OnClickListener{
+    private String TAG = "MainActivity";
 
     private IntentFilter intentFilter;
     private NetworkChangeReceive networkChangeReceive;
@@ -43,6 +51,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initView();
 
         networkMonitor();
+
+        checkVersion();
+    }
+
+    private void checkVersion() {
+        HttpUtils.get("https://raw.githubusercontent.com/Arvin9/data/master/app_version.json", new BaseCallback() {
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                super.onResponse(call, response);
+                String result = response.body().string();
+                JSONObject body = JSON.parseObject(result);
+                int versionCode = body.getIntValue("versionCode");
+                Log.i(TAG, "versionCode: " + versionCode);
+                compareVsersion(versionCode);
+            }
+        });
+    }
+
+    private void compareVsersion(int code) {
+        int versionCode = getVersionCode();
+        Log.i(TAG, "versionCode: " +  versionCode);
+        if (versionCode < code) {
+            // 下载
+            Log.i(TAG, "下载");
+        }
     }
 
     private void initAli() {

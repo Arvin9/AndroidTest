@@ -12,6 +12,7 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 import site.nebulas.demo.R;
+import site.nebulas.demo.base.BaseCallback;
 import site.nebulas.demo.utils.HttpUtils;
 
 /**
@@ -42,12 +43,7 @@ public class OkHttpActivity extends Activity implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.get: {
-                HttpUtils.get("http://publicobject.com/helloworld.txt", new Callback() {
-                    @Override
-                    public void onFailure(Call call, IOException e) {
-                        Log.i("http", "e:" + e);
-                    }
-
+                HttpUtils.get("http://publicobject.com/helloworld.txt", new BaseCallback() {
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
                         String result = response.body().string();

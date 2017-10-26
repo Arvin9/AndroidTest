@@ -5,6 +5,7 @@ import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
+import site.nebulas.demo.base.BaseCallback;
 
 /**
  * Created by Nebula on 2017/10/10.
@@ -13,7 +14,8 @@ import okhttp3.RequestBody;
 public class HttpUtils {
     private static final OkHttpClient client = new OkHttpClient();
 
-    public static void get(String url, Callback callback) {
+    public static void get(String url, BaseCallback callback) {
+        callback.url = url;
         Request request = new Request.Builder()
                 .url(url)
                 .build();
@@ -23,7 +25,8 @@ public class HttpUtils {
     public static final MediaType JSON
             = MediaType.parse("application/json; charset=utf-8");
 
-    public static void post(String url, String json, Callback callback) {
+    public static void post(String url, String json, BaseCallback callback) {
+        callback.url = url;
         RequestBody body = RequestBody.create(JSON, json);
         Request request = new Request.Builder()
                 .url(url)
