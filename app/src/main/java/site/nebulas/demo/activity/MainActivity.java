@@ -11,19 +11,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
+import com.alibaba.sdk.android.man.MANService;
+import com.alibaba.sdk.android.man.MANServiceProvider;
+import com.baidu.mobstat.StatService;
 import com.tendcloud.tenddata.TCAgent;
 import com.tendcloud.tenddata.TDAccount;
-
-import java.io.IOException;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
+import com.zhuge.analysis.stat.ZhugeSDK;
 import site.nebula.marmot.utils.CheckNetworkUtil;
 import site.nebula.marmot.utils.LogUtil;
 import site.nebulas.demo.R;
-import site.nebulas.demo.utils.HttpUtils;
 import site.nebulas.demo.utils.ToastUtil;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -36,11 +32,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TCAgent. onLogin("1234567", TDAccount.AccountType.WEIXIN, "Sun");
+        TCAgent.onLogin("1234567", TDAccount.AccountType.WEIXIN, "Sun");
+
+        initAli();
+
+        baiduMobAd();
+
+        //initZhugeIO();
 
         initView();
 
         networkMonitor();
+    }
+
+    private void initAli() {
+        MANService manService = MANServiceProvider.getService();
+        // 用户登录埋点
+        manService.getMANAnalytics().updateUserAccount("usernick", "123456");
+    }
+
+    private void initZhugeIO() {
+        //初始化分析跟踪
+        ZhugeSDK.getInstance().init(getApplicationContext());
+        Log.i("zhuge", "诸葛io初始化");
+    }
+
+    private void baiduMobAd() {
+        // setSendLogStrategy已经@deprecated，建议使用新的start接口
+        // 如果没有页面和自定义事件统计埋点，此代码一定要设置，否则无法完成统计
+        // 进程第一次执行此代码，会导致发送上次缓存的统计数据；若无上次缓存数据，则发送空启动日志
+        // 由于多进程等可能造成Application多次执行，建议此代码不要埋点在Application中，否则可能造    成启动次数偏高
+        // 建议此代码埋点在统计路径触发的第一个页面中，若可能存在多个则建议都埋点
+        StatService.start(this);
+        // 获取测试设备ID
+        String testDeviceId = StatService.getTestDeviceId(this);
+        // 日志输出
+        android.util.Log.d("BaiduMobStat", "Test DeviceId : " + testDeviceId);
     }
 
     /**
@@ -71,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.check_network_state).setOnClickListener(this);
         findViewById(R.id.sqlite).setOnClickListener(this);
         findViewById(R.id.okhttp).setOnClickListener(this);
+        findViewById(R.id.camera).setOnClickListener(this);
     }
 
     @Override
@@ -144,6 +172,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.okhttp: {
                 ToastUtil.toast("okHttp");
                 Intent intent = new Intent(this, OkHttpActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.camera: {
+                ToastUtil.toast("摄像头");
+                Intent intent = new Intent(this, CameraActivity.class);
                 startActivity(intent);
                 break;
             }

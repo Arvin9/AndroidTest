@@ -1,0 +1,24 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="site.nebula.zhugeio">
+
+    //需要网络权限
+    <uses-permission
+        android:name="android.permission.INTERNET"/>
+    //需要获取网络状态
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission
+        android:name="android.permission.ACCESS_WIFI_STATE"/>
+    //获取设备唯一标识
+    <uses-permission
+        android:name="android.permission.READ_PHONE_STATE"/>
+
+    <application android:allowBackup="true" android:label="@string/app_name"
+        android:supportsRtl="true">
+
+        <meta-data android:value="2ed5ec26e27744ec94864287ee8c7252" android:name = "ZHUGE_APPKEY"/>
+        <meta-data android:value="测试" android:name = "ZHUGE_CHANNEL"/>
+    </application>
+
+</manifest>

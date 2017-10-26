@@ -126,6 +126,16 @@
             android:textColor="@color/colorSecondaryText"
             android:text="okHttp"/>
 
+        <Button
+            android:id="@+id/camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_border"
+            android:textColor="@color/colorSecondaryText"
+            android:text="摄像头"/>
+
     </GridLayout>
 
 </LinearLayout>
