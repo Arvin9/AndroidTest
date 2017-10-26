@@ -26,6 +26,7 @@ import site.nebula.marmot.utils.LogUtil;
 import site.nebulas.demo.R;
 import site.nebulas.demo.base.BaseActivity;
 import site.nebulas.demo.base.BaseCallback;
+import site.nebulas.demo.update.UpdateAPKService;
 import site.nebulas.demo.utils.HttpUtils;
 import site.nebulas.demo.utils.ToastUtil;
 
@@ -69,14 +70,22 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         });
     }
 
+    // 版本比较
     private void compareVsersion(int code) {
         int versionCode = getVersionCode();
         Log.i(TAG, "versionCode: " +  versionCode);
         if (versionCode < code) {
             // 下载
             Log.i(TAG, "下载");
+            String saveDir = getCacheDir().getPath();
+            Intent intent=new Intent(this,UpdateAPKService.class);
+            intent.putExtra("saveDir",saveDir);
+            startService(intent);
         }
     }
+
+
+
 
     private void initAli() {
         MANService manService = MANServiceProvider.getService();

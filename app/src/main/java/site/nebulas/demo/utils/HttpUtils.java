@@ -16,9 +16,7 @@ public class HttpUtils {
 
     public static void get(String url, BaseCallback callback) {
         callback.url = url;
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
+        Request request = new Request.Builder().url(url).build();
         client.newCall(request).enqueue(callback);
     }
 
@@ -28,10 +26,13 @@ public class HttpUtils {
     public static void post(String url, String json, BaseCallback callback) {
         callback.url = url;
         RequestBody body = RequestBody.create(JSON, json);
-        Request request = new Request.Builder()
-                .url(url)
-                .post(body)
-                .build();
+        Request request = new Request.Builder().url(url).post(body).build();
+        client.newCall(request).enqueue(callback);
+    }
+
+    public static void downFile(String url,final String saveDir, BaseCallback callback) {
+        callback.url = url;
+        Request request = new Request.Builder().url(url).build();
         client.newCall(request).enqueue(callback);
     }
 }
