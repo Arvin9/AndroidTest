@@ -3,6 +3,7 @@ package site.nebulas.demo.aplication;
 import android.app.Application;
 import android.content.Context;
 import android.util.Log;
+
 import com.alibaba.sdk.android.man.MANService;
 import com.alibaba.sdk.android.man.MANServiceProvider;
 import com.tencent.bugly.Bugly;
@@ -10,8 +11,6 @@ import com.tencent.mta.track.DebugMode;
 import com.tencent.mta.track.StatisticsDataAPI;
 import com.tencent.stat.MtaSDkException;
 import com.tencent.stat.StatService;
-import com.tencent.tinker.loader.app.TinkerApplication;
-import com.tencent.tinker.loader.shareutil.ShareConstants;
 import com.tendcloud.tenddata.TCAgent;
 
 /**
@@ -30,11 +29,11 @@ public class MainApplication extends Application{
         super.onCreate();
         context = getApplicationContext();
 
-        //initAli();
+//        initAli();
 
-        initMTA();
+        //initMTA();
 
-        //talkingData();
+        // talkingData();
 
         //initBugly();
     }

@@ -10,6 +10,7 @@ android {
         targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
         versionName config.versionName
+        ndk { abiFilters "armeabi-v7a" }
     }
     buildTypes {
         release {
@@ -17,14 +18,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['src/main/jniLibs']
+        }
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    //MTA的jar包
-    compile 'com.qq.mta:mta:3.1.41-alpha'
-    //midjar包
-    compile 'com.tencent.mid:mid:3.73-alpha'
-    //可视化埋点的相关jar包 （根据需要添加），可视化埋点的版本号，和MTA的版本号必须匹配，只能是当前版本号成对存在。
-    compile 'com.qq.visual:visual:1.0.7-alpha'
 }

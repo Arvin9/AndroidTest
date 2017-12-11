@@ -37,7 +37,7 @@ public class ShakeActivity extends Activity implements SensorEventListener {
     private Sensor mAccelerometerSensor;
     private Vibrator mVibrator;//手机震动
     private SoundPool mSoundPool;//摇一摇音效
-    private MediaPlayer mediaPlayer = new MediaPlayer();
+    private MediaPlayer mediaPlayer;
 
     //记录摇动状态
     private boolean isShake = false;
@@ -64,8 +64,7 @@ public class ShakeActivity extends Activity implements SensorEventListener {
         //初始化SoundPool
         //mSoundPool = new SoundPool(1, AudioManager.STREAM_SYSTEM, 5);
         //mWeiChatAudio = mSoundPool.load(this, R.raw.weichat_audio, 1);
-
-        mediaPlayer = MediaPlayer.create(this, R.raw.weichat_audio);
+        mediaPlayer = MediaPlayer.create(ShakeActivity.this, R.raw.weichat_audio);
         //获取Vibrator震动服务
         mVibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
     }

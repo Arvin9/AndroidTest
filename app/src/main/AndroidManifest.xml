@@ -38,6 +38,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.FirstActivity" />
         <activity android:name=".activity.CallUpActivity" />
         <activity android:name=".activity.AlarmActivity" />
         <activity android:name=".activity.NotificationActivity" />
@@ -67,6 +68,9 @@
                 <action android:name="com.talkingdata.sdk.TDAntiCheatingService" />
             </intent-filter>
         </service>
+
+        <meta-data android:name="channel" android:value="${CHANNEL_NAME}" />
+
         <meta-data android:name="TD_APP_ID" android:value="C393A948E6F9496D8367AB4159D2FB02" />
         <meta-data android:name="TD_CHANNEL_ID" android:value="1" />
 
@@ -79,6 +83,18 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths"/>
         </provider>
+
+        <!-- 此处Receiver名字修改为当前包名路径 -->
+        <receiver android:name="site.nebulas.demo.push.MyPushMessageReceiver">
+            <intent-filter>
+                <!-- 接收push消息 -->
+                <action android:name="com.baidu.android.pushservice.action.MESSAGE" />
+                <!-- 接收bind、setTags等method的返回结果-->
+                <action android:name="com.baidu.android.pushservice.action.RECEIVE" />
+                <!-- 接收通知点击事件，和通知自定义内容 -->
+                <action android:name="com.baidu.android.pushservice.action.notification.CLICK" />
+            </intent-filter>
+        </receiver>
 
         <meta-data android:value="2ed5ec26e27744ec94864287ee8c7252" android:name = "ZHUGE_APPKEY"/>
         <meta-data android:value="测试" android:name = "ZHUGE_CHANNEL"/>

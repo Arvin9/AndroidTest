@@ -1,10 +1,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-
+    xmlns:tools="http://schemas.android.com/tools"
     package="site.nebula.mta">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
 
     <application android:allowBackup="true" android:label="@string/app_name"
         android:supportsRtl="true">
-
+        <provider
+            android:name="com.tencent.mid.api.MidProvider"
+            android:authorities="site.nebula.mta.TENCENT.MID.V3"
+            android:exported="true"
+            tools:replace="android:authorities">
+        </provider>
+        <meta-data android:name="TA_APPKEY" android:value="ATCD5E9V6E1Z" tools:replace="android:value"/>
+        <!-- 请将value改为app发布对应的渠道，不同的发布渠道使用不同的名字 < -->
+        <meta-data android:name="InstallChannel" android:value="play" tools:replace="android:value"/>
+        <!-- 注意：若填写的渠道为纯数字字符串类型，请不要超过int表示的范围！ < -->
     </application>
 
 </manifest>

@@ -12,51 +12,85 @@ android {
         versionCode config.versionCode
         versionName config.versionName
         manifestPlaceholders = [
+                CHANNEL_NAME:"WANDOUJIA",
+
                 MTA_APPKEY:"ATCD5E9V6E1Z",
                 MTA_CHANNEL:"测试"
         ]
         ndk {
             // 设置支持的SO库架构
-            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+            abiFilters 'armeabi-v7a' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
         }
     }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['src/main/jniLibs']
+        }
+    }
+    productFlavors {
+        yingyongbao {
+            manifestPlaceholders = [ CHANNEL_NAME:"YINGYONGBAO"]
+        }
+        umeng {
+            manifestPlaceholders = [ CHANNEL_NAME:"UMENG" ]
+        }
+        wandoujia {
+            manifestPlaceholders = [ CHANNEL_NAME:"WANDOUJIA" ]
+        }
+    }
+//    productFlavors.all { flavor ->
+//        flavor.manifestPlaceholders = [CHANNEL_NAME: name]
+//    }
     buildTypes {
+        debug {
+            versionNameSuffix "-debug"
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.debug
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        // 输出apk名称为boohee_v1.0_2015-01-15_wandoujia.apk
+                        def fileName = "test_v${defaultConfig.versionName}_${releaseTime()}_${variant.productFlavors[0].name}.apk"
+                        output.outputFile = new File(outputFile.parent, fileName)
+                    }
+                }
+            }
         }
     }
 }
 
+def releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:support-v4'
     compile 'com.android.support:appcompat-v7:25.3.1'
-
     compile 'com.alibaba:fastjson:1.2.31'
-
     compile 'com.squareup.okhttp3:okhttp:3.9.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-
     compile 'com.google.zxing:core:3.3.0'
-
-    //MTA的jar包
-    compile 'com.qq.mta:mta:3.1.41-alpha'
-    //midjar包
-    compile 'com.tencent.mid:mid:3.73-alpha'
-    //可视化埋点的相关jar包 （根据需要添加），可视化埋点的版本号，和MTA的版本号必须匹配，只能是当前版本号成对存在。
-    compile 'com.qq.visual:visual:1.0.7-alpha'
-
-    compile "com.android.support:multidex:1.0.1" // 多dex配置
+    compile 'com.android.support:multidex:1.0.1'
+    // 多dex配置
     // 注释掉原有bugly的仓库
     //compile 'com.tencent.bugly:crashreport:latest.release' //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
-    compile 'com.tencent.bugly:nativecrashreport:latest.release' //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
-    compile 'com.tencent.bugly:crashreport_upgrade:latest.release'//其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
-
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
+    compile 'com.tencent.bugly:crashreport_upgrade:latest.release'
+    //其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
     compile 'com.aliyun.ams:alicloud-android-man:1.+'
-
     testCompile 'junit:junit:4.12'
-    compile project(path: ':marmot')
+    compile project(':mta')
+    compile project(':baidupush')
+    compile project(':marmot')
 }
 
 // 依赖插件脚本

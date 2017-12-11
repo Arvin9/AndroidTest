@@ -10,15 +10,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.sdk.android.man.MANService;
 import com.alibaba.sdk.android.man.MANServiceProvider;
 import com.baidu.mobstat.StatService;
-import com.tendcloud.tenddata.TCAgent;
-import com.tendcloud.tenddata.TDAccount;
 import com.zhuge.analysis.stat.ZhugeSDK;
+
 import java.io.IOException;
+
 import okhttp3.Call;
 import okhttp3.Response;
 import site.nebula.marmot.utils.CheckNetworkUtil;
@@ -41,11 +42,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TCAgent.onLogin("1234567", TDAccount.AccountType.WEIXIN, "Sun");
+        //TCAgent.onLogin("1234567", TDAccount.AccountType.WEIXIN, "Sun");
 
-        initAli();
+//        initAli();
+        // baiduMobAd();
 
-        baiduMobAd();
+        Log.i(TAG, "channel: " + getChannel());
 
         //initZhugeIO();
 
